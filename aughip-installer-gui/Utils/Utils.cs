@@ -119,6 +119,10 @@ namespace aughip_installer_gui.Utils
             return false;
         }
 
+        /// <summary>
+        /// Returns whether SteamVR is running
+        /// </summary>
+        /// <returns>true if SteamVR is running</returns>
         public static bool IsSteamVRRunning()
         {
             if (Process.GetProcesses().FirstOrDefault((Process proc) => proc.ProcessName == "vrserver" || proc.ProcessName == "vrmonitor") == null)
@@ -129,6 +133,10 @@ namespace aughip_installer_gui.Utils
             return true;
         }
 
+        /// <summary>
+        /// Tries killing SteamVR
+        /// </summary>
+        /// <returns>True if SteamVR has successfully been killed</returns>
         public static bool KillSteamVR()
         {
             // Close SteamVR Dashboard

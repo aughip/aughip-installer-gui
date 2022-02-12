@@ -33,9 +33,9 @@ namespace aughip_installer_gui.Installer
         private static void RegisterOpenVRDriver()
         {
             // Ensure that SteamVR isn't running
-            if (TryKillingSteamVR())
+            if (!TryKillingSteamVR())
             {
-                MessageBox.Show("Install failed");
+                MessageBox.Show("Install failed (Try closing SteamVR)");
                 Application.Current.Shutdown(-1);
             }
 
@@ -61,6 +61,7 @@ namespace aughip_installer_gui.Installer
             catch (Exception e)
             {
                 // TODO: Log
+                MessageBox.Show("Failed to install Microsoft Visual C++ Redistributable (You might have to manually install it yourself)");
             }
         }
 
@@ -131,6 +132,10 @@ namespace aughip_installer_gui.Installer
             }
         }
 
+        /// <summary>
+        /// Tries to kill SteamVR
+        /// </summary>
+        /// <returns>True if SteamVR is not running</returns>
         private static bool TryKillingSteamVR()
         {
             if (Utils.Utils.IsSteamVRRunning())
