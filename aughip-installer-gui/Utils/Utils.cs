@@ -4,12 +4,15 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows;
+using System.Windows.Interop;
 using Microsoft.Win32;
 
 namespace aughip_installer_gui.Utils
 {
-    public static class Utils
+    public static partial class Utils
     {
         /// <summary>
         /// Returns whether VC Redist 2015-2019 is installed on the current system
@@ -169,6 +172,20 @@ namespace aughip_installer_gui.Utils
             }
 
             return true;
+        }
+
+
+        // Darkmode Title bar... not fun for linux probably
+        // https://stackoverflow.com/a/64927217
+        [DllImport("DwmApi")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
+        public static void EnableDarkTitleBar(this Window window)
+        {
+            var Handle = new WindowInteropHelper(window).Handle;
+
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
         }
     }
 }

@@ -11,12 +11,16 @@ namespace aughip_installer_gui.Pages
             InitializeComponent();
         }
 
-        public void OnSelected()
+        public async void DownloadFile() {
+
+        }
+
+        public async void OnSelected()
         {
             // Ensure VC Redist is installed
             InstallerData.ShouldInstallVCRedist = !Utils.Utils.IsVCRedistInstalled();
             if (InstallerData.ShouldInstallVCRedist)
-            {
+            { 
                 if (!Utils.Utils.DownloadSafely(InstallerData.VCRedistRemote, Path.Combine(InstallerData.DownloadDirectory, "vc_redist.x64.exe")))
                 {
                     throw new System.Exception("Failed to download VCRedist! Join the Discord (https://k2vr.tech) for help!");

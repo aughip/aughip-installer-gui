@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using aughip_installer_gui.Utils;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -35,7 +36,7 @@ namespace aughip_installer_gui.Installer
             // Ensure that SteamVR isn't running
             if (!TryKillingSteamVR())
             {
-                MessageBox.Show("Install failed (Try closing SteamVR)");
+                ThemedMessageBoxUtil.Show("Install failed (Try closing SteamVR)");
                 Application.Current.Shutdown(-1);
             }
 
@@ -61,7 +62,7 @@ namespace aughip_installer_gui.Installer
             catch (Exception e)
             {
                 // TODO: Log
-                MessageBox.Show("Failed to install Microsoft Visual C++ Redistributable (You might have to manually install it yourself)");
+                ThemedMessageBoxUtil.Show("Failed to install Microsoft Visual C++ Redistributable (You might have to manually install it yourself)");
             }
         }
 
@@ -140,7 +141,7 @@ namespace aughip_installer_gui.Installer
         {
             if (Utils.Utils.IsSteamVRRunning())
             {
-                if (MessageBox.Show("The installer can't continue if SteamVR is running. Close SteamVR?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (ThemedMessageBoxUtil.Show("The installer can't continue if SteamVR is running. Close SteamVR?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Utils.Utils.KillSteamVR();
                     if (Utils.Utils.IsSteamVRRunning())

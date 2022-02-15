@@ -1,0 +1,14 @@
+{
+	"0.1": {
+		"files": [
+			{
+				"path": "driver.vrdrivermanifest",
+				"hash": ""
+			},
+			{
+				"path": "bin/win64/driver_AugmentedHip.dll",
+				"hash": ""
+			}
+		]
+	}
+}

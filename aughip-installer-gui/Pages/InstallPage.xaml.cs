@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using aughip_installer_gui.Utils;
 
 namespace aughip_installer_gui.Pages
 {
@@ -16,7 +17,7 @@ namespace aughip_installer_gui.Pages
         public void OnSelected()
         {
             Installer.Installer.InstallAugHip();
-            MessageBox.Show("Successfully installed Augmented Hip!", "Install success!");
+            ThemedMessageBoxUtil.Show("Successfully installed Augmented Hip!", "Install success!");
             Application.Current.Shutdown(0);
         }
     }

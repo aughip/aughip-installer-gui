@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using aughip_installer_gui.Pages;
+using aughip_installer_gui.Utils;
 
 namespace aughip_installer_gui
 {
@@ -31,13 +33,19 @@ namespace aughip_installer_gui
         {
             if (tabControl.SelectedIndex == 2) // we can't cancel on the install tab or it might be left in a broken state
             {
-                e.Cancel = true;
+                e.Cancel = true; 
             }
             else if (tabControl.SelectedIndex == 1 && // Download page
-              MessageBox.Show("Are you sure you want to cancel the download(s)?", "Confirm exit", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                ThemedMessageBoxUtil.Show("Are you sure you want to cancel the download(s)?", "Confirm exit", MessageBoxButton.YesNo) == MessageBoxResult.No)
             {
                 e.Cancel = true;
             }
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            Utils.Utils.EnableDarkTitleBar(this);
         }
     }
 }
