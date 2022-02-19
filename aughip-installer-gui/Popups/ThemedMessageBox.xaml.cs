@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Windows;
+using Localization = aughip_installer_gui.Properties.Resources;
 
 namespace aughip_installer_gui.Popups
 {
@@ -29,30 +30,30 @@ namespace aughip_installer_gui.Popups
             switch (buttonBehavior)
             {
                 case MessageBoxButton.OK:
-                    button_Right.Content = "OK";
+                    button_Right.Content = Localization.modal_ok;
                     button_Right.IsDefault = true;
                     button_Middle.Visibility = Visibility.Collapsed;
                     button_Left.Visibility = Visibility.Collapsed;
                     break;
                 case MessageBoxButton.OKCancel:
-                    button_Right.Content = "Cancel";
+                    button_Right.Content = Localization.modal_cancel;
                     button_Right.IsCancel = true;
-                    button_Middle.Content = "OK";
+                    button_Middle.Content = Localization.modal_ok;
                     button_Middle.IsDefault = true;
                     button_Left.Visibility = Visibility.Collapsed;
                     break;
                 case MessageBoxButton.YesNo:
-                    button_Right.Content = "No";
+                    button_Right.Content = Localization.modal_no;
                     button_Right.IsCancel = true;
-                    button_Middle.Content = "Yes";
+                    button_Middle.Content = Localization.modal_yes;
                     button_Middle.IsDefault = true;
                     button_Left.Visibility = Visibility.Collapsed;
                     break;
                 case MessageBoxButton.YesNoCancel:
-                    button_Right.Content = "Cancel";
+                    button_Right.Content = Localization.modal_cancel;
                     button_Right.IsCancel = true;
-                    button_Middle.Content = "No";
-                    button_Left.Content = "Yes";
+                    button_Middle.Content = Localization.modal_no;
+                    button_Left.Content = Localization.modal_yes;
                     button_Left.IsDefault = true;
                     break;
             }

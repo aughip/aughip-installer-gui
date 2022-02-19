@@ -126,8 +126,71 @@
   <data name="btn_landing_licenses" xml:space="preserve">
     <value>Licenses</value>
   </data>
+  <data name="DOWNLOAD_FAILED" xml:space="preserve">
+    <value>Download Failed!</value>
+  </data>
+  <data name="DOWNLOAD_MODULE_AUGHIP" xml:space="preserve">
+    <value>Augmented Hip 0.1</value>
+  </data>
+  <data name="DOWNLOAD_MODULE_VCREDIST" xml:space="preserve">
+    <value>Visual C++ Redist</value>
+  </data>
+  <data name="ERR_DOWNLOAD_FAIL_AUGHIP" xml:space="preserve">
+    <value>Failed to download AugHip! Join the Discord (https://k2vr.tech) for help!</value>
+  </data>
+  <data name="ERR_DOWNLOAD_FAIL_VCREDIST" xml:space="preserve">
+    <value>Failed to download VCRedist! Join the Discord (https://k2vr.tech) for help!</value>
+  </data>
+  <data name="ERR_INSTALL_FAIL_STEAMVR_RUNNING" xml:space="preserve">
+    <value>Install failed (Try closing SteamVR)</value>
+  </data>
+  <data name="ERR_INSTALL_FAIL_VCREDIST_FAILED" xml:space="preserve">
+    <value>Failed to install Microsoft Visual C++ Redistributable (You might have to manually install it yourself)</value>
+  </data>
+  <data name="ERR_UNINSTALL_FAILED" xml:space="preserve">
+    <value>An error happened while trying to uninstall. Join our Discord (https://k2vr.tech) for help on manually uninstalling.</value>
+  </data>
+  <data name="INSTALL_STATE_INSTALL_AUGHIP" xml:space="preserve">
+    <value>Installing Augmented Hip</value>
+  </data>
+  <data name="INSTALL_STATE_INSTALL_VCREDIST" xml:space="preserve">
+    <value>Installing Visual C++ Redistributable</value>
+  </data>
+  <data name="INSTALL_STATE_REGISTER_OPENVR" xml:space="preserve">
+    <value>Registering OpenVR Driver</value>
+  </data>
+  <data name="INSTALL_STATE_REGISTER_UNINSTALLER" xml:space="preserve">
+    <value>Registering Uninstaller</value>
+  </data>
+  <data name="INSTALL_SUCCESS" xml:space="preserve">
+    <value>Successfully installed Augmented Hip!</value>
+  </data>
+  <data name="INSTALL_SUCCESS_TITLE" xml:space="preserve">
+    <value>Install success!</value>
+  </data>
   <data name="liability_text" xml:space="preserve">
     <value>By proceeding with the installation you agree that this software is provided to you "as is" without any warranty whatsoever. In no event shall the authors of this software be liable for any claim, damages or other liability.</value>
+  </data>
+  <data name="modal_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="modal_confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="modal_no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="modal_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="modal_yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PROMPT_CLOSE_STEAMVR" xml:space="preserve">
+    <value>The installer can't continue if SteamVR is running. Close SteamVR?</value>
+  </data>
+  <data name="PROMPT_UNINSTALL" xml:space="preserve">
+    <value>Are you sure you want to uninstall Augmented Hip?</value>
   </data>
   <data name="tab_downloading" xml:space="preserve">
     <value>Downloading</value>
@@ -137,5 +200,8 @@
   </data>
   <data name="tab_landing" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="UNINSTALL_SUCCESS" xml:space="preserve">
+    <value>Uninstalled successfully!</value>
   </data>
 </root>

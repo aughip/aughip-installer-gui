@@ -14,11 +14,6 @@ namespace aughip_installer_gui.Pages
             InitializeComponent();
         }
 
-        public async void DownloadFile()
-        {
-
-        }
-
         public async void ProgressUpdate(float value)
         {
             switch (currentModule)
@@ -30,7 +25,6 @@ namespace aughip_installer_gui.Pages
                     augHipProgress.ProgressValue = 100.0 * value;
                     break;
             }
-            // System.Console.WriteLine(value);
         }
 
         public async void OnSelected()
@@ -41,7 +35,7 @@ namespace aughip_installer_gui.Pages
             {
                 if (!await Utils.Utils.DownloadSafely(InstallerData.VCRedistRemote, Path.Combine(InstallerData.DownloadDirectory, "vc_redist.x64.exe"), ProgressUpdate))
                 {
-                    Utils.ThemedMessageBoxUtil.Show("Failed to download VCRedist! Join the Discord (https://k2vr.tech) for help!");
+                    Utils.ThemedMessageBoxUtil.Show(Properties.Resources.ERR_DOWNLOAD_FAIL_VCREDIST);
                 }
             }
             vcRedistProgress.ProgressValue = 100.0;
@@ -49,7 +43,7 @@ namespace aughip_installer_gui.Pages
 
             if (!await Utils.Utils.DownloadSafely(InstallerData.AugHipRemote, Path.Combine(InstallerData.DownloadDirectory, "augmented-hip.zip"), ProgressUpdate))
             {
-                Utils.ThemedMessageBoxUtil.Show("Failed to download AugHip! Join the Discord (https://k2vr.tech) for help!");
+                Utils.ThemedMessageBoxUtil.Show(Properties.Resources.ERR_DOWNLOAD_FAIL_AUGHIP);
             }
             augHipProgress.ProgressValue = 100.0;
             await Task.Delay(10);

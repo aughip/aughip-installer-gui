@@ -17,7 +17,7 @@ namespace aughip_installer_gui.Pages
         public async void OnSelected()
         {
             await Installer.Installer.InstallAugHip(this);
-            ThemedMessageBoxUtil.Show("Successfully installed Augmented Hip!", "Install success!");
+            ThemedMessageBoxUtil.Show(Properties.Resources.INSTALL_SUCCESS, Properties.Resources.INSTALL_SUCCESS_TITLE);
             Application.Current.Shutdown(0);
         }
     }

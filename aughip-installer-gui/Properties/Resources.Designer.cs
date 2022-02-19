@@ -88,11 +88,200 @@ namespace aughip_installer_gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download Failed!.
+        /// </summary>
+        public static string DOWNLOAD_FAILED {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Augmented Hip 0.1.
+        /// </summary>
+        public static string DOWNLOAD_MODULE_AUGHIP {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_MODULE_AUGHIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visual C++ Redist.
+        /// </summary>
+        public static string DOWNLOAD_MODULE_VCREDIST {
+            get {
+                return ResourceManager.GetString("DOWNLOAD_MODULE_VCREDIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to download AugHip! Join the Discord (https://k2vr.tech) for help!.
+        /// </summary>
+        public static string ERR_DOWNLOAD_FAIL_AUGHIP {
+            get {
+                return ResourceManager.GetString("ERR_DOWNLOAD_FAIL_AUGHIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to download VCRedist! Join the Discord (https://k2vr.tech) for help!.
+        /// </summary>
+        public static string ERR_DOWNLOAD_FAIL_VCREDIST {
+            get {
+                return ResourceManager.GetString("ERR_DOWNLOAD_FAIL_VCREDIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install failed (Try closing SteamVR).
+        /// </summary>
+        public static string ERR_INSTALL_FAIL_STEAMVR_RUNNING {
+            get {
+                return ResourceManager.GetString("ERR_INSTALL_FAIL_STEAMVR_RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to install Microsoft Visual C++ Redistributable (You might have to manually install it yourself).
+        /// </summary>
+        public static string ERR_INSTALL_FAIL_VCREDIST_FAILED {
+            get {
+                return ResourceManager.GetString("ERR_INSTALL_FAIL_VCREDIST_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error happened while trying to uninstall. Join our Discord (https://k2vr.tech) for help on manually uninstalling..
+        /// </summary>
+        public static string ERR_UNINSTALL_FAILED {
+            get {
+                return ResourceManager.GetString("ERR_UNINSTALL_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installing Augmented Hip.
+        /// </summary>
+        public static string INSTALL_STATE_INSTALL_AUGHIP {
+            get {
+                return ResourceManager.GetString("INSTALL_STATE_INSTALL_AUGHIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installing Visual C++ Redistributable.
+        /// </summary>
+        public static string INSTALL_STATE_INSTALL_VCREDIST {
+            get {
+                return ResourceManager.GetString("INSTALL_STATE_INSTALL_VCREDIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registering OpenVR Driver.
+        /// </summary>
+        public static string INSTALL_STATE_REGISTER_OPENVR {
+            get {
+                return ResourceManager.GetString("INSTALL_STATE_REGISTER_OPENVR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registering Uninstaller.
+        /// </summary>
+        public static string INSTALL_STATE_REGISTER_UNINSTALLER {
+            get {
+                return ResourceManager.GetString("INSTALL_STATE_REGISTER_UNINSTALLER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully installed Augmented Hip!.
+        /// </summary>
+        public static string INSTALL_SUCCESS {
+            get {
+                return ResourceManager.GetString("INSTALL_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install success!.
+        /// </summary>
+        public static string INSTALL_SUCCESS_TITLE {
+            get {
+                return ResourceManager.GetString("INSTALL_SUCCESS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to By proceeding with the installation you agree that this software is provided to you &quot;as is&quot; without any warranty whatsoever. In no event shall the authors of this software be liable for any claim, damages or other liability..
         /// </summary>
         public static string liability_text {
             get {
                 return ResourceManager.GetString("liability_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string modal_cancel {
+            get {
+                return ResourceManager.GetString("modal_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string modal_confirm {
+            get {
+                return ResourceManager.GetString("modal_confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string modal_no {
+            get {
+                return ResourceManager.GetString("modal_no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string modal_ok {
+            get {
+                return ResourceManager.GetString("modal_ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string modal_yes {
+            get {
+                return ResourceManager.GetString("modal_yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The installer can&apos;t continue if SteamVR is running. Close SteamVR?.
+        /// </summary>
+        public static string PROMPT_CLOSE_STEAMVR {
+            get {
+                return ResourceManager.GetString("PROMPT_CLOSE_STEAMVR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to uninstall Augmented Hip?.
+        /// </summary>
+        public static string PROMPT_UNINSTALL {
+            get {
+                return ResourceManager.GetString("PROMPT_UNINSTALL", resourceCulture);
             }
         }
         
@@ -120,6 +309,15 @@ namespace aughip_installer_gui.Properties {
         public static string tab_landing {
             get {
                 return ResourceManager.GetString("tab_landing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uninstalled successfully!.
+        /// </summary>
+        public static string UNINSTALL_SUCCESS {
+            get {
+                return ResourceManager.GetString("UNINSTALL_SUCCESS", resourceCulture);
             }
         }
     }

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using aughip_installer_gui.Installer;
 using aughip_installer_gui.Utils;
+using Localization = aughip_installer_gui.Properties.Resources;
 using Microsoft.Win32;
 
 namespace aughip_installer_gui
@@ -23,13 +24,13 @@ namespace aughip_installer_gui
 
             if (isUninstall)
             {
-                if (ThemedMessageBoxUtil.Show("Are you sure you want to uninstall Augmented Hip?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (ThemedMessageBoxUtil.Show(Localization.PROMPT_UNINSTALL, Localization.modal_confirm, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     try
                     {
                         if (Uninstaller.UninstallAugHip(installPath))
                         {
-                            ThemedMessageBoxUtil.Show("Uninstalled successfully!");
+                            ThemedMessageBoxUtil.Show(Localization.UNINSTALL_SUCCESS);
                             if (Directory.Exists(installPath))
                             {
                                 // self YEET
@@ -45,7 +46,7 @@ namespace aughip_installer_gui
                     }
                     catch (Exception ex)
                     {
-                        ThemedMessageBoxUtil.Show("An error happened while trying to uninstall. Join our Discord (https://k2vr.tech) for help on manually uninstalling.");
+                        ThemedMessageBoxUtil.Show(Localization.ERR_UNINSTALL_FAILED);
                         // new ExceptionDialog(ex).ShowDialog();
                     }
                 }
