@@ -19,5 +19,10 @@ namespace aughip_installer_gui.Utils
         {
             Console.WriteLine(message);
         }
+
+        public static void Info(string message, params object[] args)
+        {
+            Console.WriteLine(string.Format(message, args));
+        }
     }
 }

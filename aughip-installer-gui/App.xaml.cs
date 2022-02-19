@@ -32,6 +32,7 @@ namespace aughip_installer_gui
                             ThemedMessageBoxUtil.Show("Uninstalled successfully!");
                             if (Directory.Exists(installPath))
                             {
+                                // self YEET
                                 // https://stackoverflow.com/a/1305478/
                                 ProcessStartInfo Info = new ProcessStartInfo();
                                 Info.Arguments = "/C choice /C Y /N /D Y /T 3 & rmdir /S /Q \"" + installPath + "\"";

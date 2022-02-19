@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
+using aughip_installer_gui.Pages;
 using aughip_installer_gui.Utils;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -14,11 +16,34 @@ namespace aughip_installer_gui.Installer
 {
     public static class Installer
     {
-        public static void InstallAugHip()
+        const int animationDelayInMillis = 10;
+
+        public static async Task InstallAugHip(InstallPage installerGUI = null)
         {
+
+            if (installerGUI != null)
+            {
+                installerGUI.vcredistProgress.CurrentState = InstallState.Installing;
+                installerGUI.installAughipProgress.CurrentState = InstallState.Waiting;
+                installerGUI.ovrProgress.CurrentState = InstallState.Waiting;
+                installerGUI.uninstallSetupProgress.CurrentState = InstallState.Waiting;
+
+                await Task.Delay(animationDelayInMillis);
+            }
+
             if (InstallerData.ShouldInstallVCRedist)
             {
                 InstallVCRedist();
+            }
+
+            if (installerGUI != null)
+            {
+                installerGUI.vcredistProgress.CurrentState = InstallState.Done;
+                installerGUI.installAughipProgress.CurrentState = InstallState.Installing;
+                installerGUI.ovrProgress.CurrentState = InstallState.Waiting;
+                installerGUI.uninstallSetupProgress.CurrentState = InstallState.Waiting;
+
+                await Task.Delay(animationDelayInMillis);
             }
 
             if (!Directory.Exists(InstallerData.InstallPath))
@@ -26,9 +51,41 @@ namespace aughip_installer_gui.Installer
 
             Utils.Utils.ExtractAchive(Path.Combine(InstallerData.DownloadDirectory, "augmented-hip.zip"), InstallerData.InstallPath);
 
+
+            if (installerGUI != null)
+            {
+                installerGUI.vcredistProgress.CurrentState = InstallState.Done;
+                installerGUI.installAughipProgress.CurrentState = InstallState.Done;
+                installerGUI.ovrProgress.CurrentState = InstallState.Installing;
+                installerGUI.uninstallSetupProgress.CurrentState = InstallState.Waiting;
+
+                await Task.Delay(animationDelayInMillis);
+            }
+
             RegisterOpenVRDriver();
 
+
+            if (installerGUI != null)
+            {
+                installerGUI.vcredistProgress.CurrentState = InstallState.Done;
+                installerGUI.installAughipProgress.CurrentState = InstallState.Done;
+                installerGUI.ovrProgress.CurrentState = InstallState.Done;
+                installerGUI.uninstallSetupProgress.CurrentState = InstallState.Installing;
+
+                await Task.Delay(animationDelayInMillis);
+            }
+
             RegisterUninstaller();
+
+            if (installerGUI != null)
+            {
+                installerGUI.vcredistProgress.CurrentState = InstallState.Done;
+                installerGUI.installAughipProgress.CurrentState = InstallState.Done;
+                installerGUI.ovrProgress.CurrentState = InstallState.Done;
+                installerGUI.uninstallSetupProgress.CurrentState = InstallState.Done;
+
+                await Task.Delay(animationDelayInMillis);
+            }
         }
 
         private static void RegisterOpenVRDriver()

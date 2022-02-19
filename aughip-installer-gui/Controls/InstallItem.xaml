@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="aughip_installer_gui.Controls.InstallItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:aughip_installer_gui.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="48" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="spinnerSpin" Storyboard.TargetName="statusIcon" Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)">
+            <DoubleAnimation From="0" To="360" BeginTime="0:0:0" Duration="0:0:1.5" RepeatBehavior="Forever"/>
+        </Storyboard>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" MinWidth="5" MaxWidth="5"/>
+            <ColumnDefinition Width="749*"/>
+            <ColumnDefinition Width="50*" MinWidth="50" MaxWidth="50"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="statusIcon" Margin="0,3,4,3" Width="34" HorizontalAlignment="Right" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5" Source="/aughip-installer-gui;component/Assets/taskWaiting.png" Grid.Column="2" Height="34">
+            <Image.RenderTransform>
+                <RotateTransform Angle="0"/>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="itemLabel" Content="Label" Margin="0" Foreground="{DynamicResource BrushForeground}" UseLayoutRounding="True" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+    </Grid>
+</UserControl>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using Microsoft.Win32;
@@ -43,7 +44,7 @@ namespace aughip_installer_gui.Utils
         }
 
         // https://stackoverflow.com/questions/44935273/
-        public static bool DownloadSafely(string url, string filePath, bool autoResume = true)
+        public static async Task<bool> DownloadSafely(string url, string filePath, Action<float> callback, bool autoResume = true)
         {
             if (File.Exists(filePath))
             {
@@ -59,6 +60,7 @@ namespace aughip_installer_gui.Utils
             long RequestContentLength = 0;
             int i = 0;
 
+            callback(0.0f);
             while (MaxContentLength == 0 || totalBytesRead < MaxContentLength)
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -68,7 +70,7 @@ namespace aughip_installer_gui.Utils
                     request.AddRange(totalBytesRead);
                 }
 
-                WebResponse response = request.GetResponse();
+                WebResponse response = await request.GetResponseAsync();
 
                 Console.WriteLine("=============== Request #{0} ==================", ++i);
                 for (var j = 0; j < response.Headers.Count; j++)
@@ -96,26 +98,27 @@ namespace aughip_installer_gui.Utils
                             var buffer = new byte[4096];
                             int bytesRead;
 
-                            while ((bytesRead = responseStream.Read(buffer, 0, buffer.Length)) > 0)
+                            while ((bytesRead = await responseStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
                             {
                                 totalBytesRead += bytesRead;
+                                callback((float)((double)totalBytesRead / MaxContentLength)); // Update UI
                                 RequestContentLength += bytesRead;
-                                localFileStream.Write(buffer, 0, bytesRead);
+                                await localFileStream.WriteAsync(buffer, 0, bytesRead);
                             }
-
-                            Console.WriteLine("Got bytes: {0}", RequestContentLength);
+                            Logger.Info("Got bytes: {0}", RequestContentLength);
                         }
-
                     }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Got bytes: {0}", RequestContentLength);
+                    callback((float)((double)totalBytesRead / MaxContentLength));
+                    Logger.Info("Got bytes: {0}", RequestContentLength);
                 }
             }
 
             if (MaxContentLength == totalBytesRead)
             {
+                callback(1.0f);
                 return true;
             }
 

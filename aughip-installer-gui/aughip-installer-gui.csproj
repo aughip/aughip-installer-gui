@@ -41,6 +41,29 @@
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\Microsoft.Build.Framework.15.9.20\lib\net46\Microsoft.Build.Framework.dll</HintPath>
@@ -95,6 +118,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\DownloadItem.xaml.cs">
+      <DependentUpon>DownloadItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstallItem.xaml.cs">
+      <DependentUpon>InstallItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Installer\Installer.cs" />
     <Compile Include="Installer\InstallerData.cs" />
     <Compile Include="Installer\Uninstaller.cs" />
@@ -116,9 +145,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\InstallState.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\ThemedMessageBoxUtil.cs" />
+    <Compile Include="Utils\UpdaterModule.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <Page Include="Controls\DownloadItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InstallItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -180,8 +219,12 @@
     <Resource Include="Assets\cover.png" />
     <Resource Include="Assets\icon.ico" />
     <Resource Include="Assets\icon.png" />
+    <Resource Include="Assets\taskComplete.png" />
+    <Resource Include="Assets\taskWorking.png" />
+    <Resource Include="Assets\taskWaiting.png" />
     <Content Include="ILRepack.targets" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

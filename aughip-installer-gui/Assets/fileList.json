@@ -8,6 +8,14 @@
 			{
 				"path": "bin/win64/driver_AugmentedHip.dll",
 				"hash": ""
+			},
+			{
+				"path": "resources/input/remote_profile.json",
+				"hash": ""
+			},
+			{
+				"path": "resources/driver.vrresources",
+				"hash": ""
 			}
 		]
 	}

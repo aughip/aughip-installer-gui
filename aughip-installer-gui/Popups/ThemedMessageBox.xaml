@@ -1,4 +1,4 @@
-﻿<Window x:Class="aughip_installer_gui.Popups.ThemedMessageBox"
+<Window x:Class="aughip_installer_gui.Popups.ThemedMessageBox"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
         SizeToContent="WidthAndHeight"
-		WindowStartupLocation="CenterOwner"
-        Title="Dialog" Height="Auto" Width="Auto" MinWidth="263" MinHeight="110" Background="{StaticResource BrushPrimary}" >
-	<Grid Margin="10">
-		<DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="10,10,0,0" VerticalAlignment="Top"/>
-		<Button x:Name="button_Right" Content="Yes" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Right_Click"/>
-		<Button x:Name="button_Middle" Content="No" HorizontalAlignment="Right" Margin="0,0,80,0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Middle_Click"/>
-		<Button x:Name="button_Left" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,160,0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Left_Click"/>
-		<TextBlock Foreground="{StaticResource BrushForeground}" x:Name="description" Margin="0,0,0,25" TextWrapping="Wrap" Text="TextBlock" Grid.RowSpan="2"/>
-	</Grid>
+        WindowStartupLocation="CenterOwner"
+        Title="Dialog" Height="Auto" Width="Auto" MinWidth="263" MinHeight="110" Background="{StaticResource BrushPrimary}" ShowInTaskbar="False" >
+    <Grid Margin="10">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource button_dark}" x:Name="button_Right" Content="Yes" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Right_Click"/>
+        <Button Style="{StaticResource button_dark}" x:Name="button_Middle" Content="No" HorizontalAlignment="Right" Margin="0,0,80,0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Middle_Click"/>
+        <Button Style="{StaticResource button_dark}" x:Name="button_Left" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,160,0" VerticalAlignment="Bottom" Width="75" Grid.Row="1" Click="button_Left_Click"/>
+        <TextBlock Foreground="{StaticResource BrushForeground}" x:Name="description" Margin="0,0,0,25" TextWrapping="Wrap" Text="TextBlock" Grid.RowSpan="2"/>
+    </Grid>
 </Window>
