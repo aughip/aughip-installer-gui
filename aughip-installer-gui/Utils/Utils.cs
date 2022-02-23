@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -189,6 +190,23 @@ namespace aughip_installer_gui.Utils
 
             if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
                 DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+        }
+
+        private static readonly HashAlgorithm cryptoService = new MD5CryptoServiceProvider();
+
+        /// <summary>
+        /// Returns the MD5 checksum of the specified file
+        /// </summary>
+        /// <param name="filePath">The file to check</param>
+        /// <returns>The MD5 checksum</returns>
+        public static string CalculateHash(string filePath)
+        {
+            using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                var hash = cryptoService.ComputeHash(fileStream);
+                var hashString = Convert.ToBase64String(hash);
+                return hashString.TrimEnd('=');
+            }
         }
     }
 }

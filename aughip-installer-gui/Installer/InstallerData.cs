@@ -15,7 +15,7 @@ namespace aughip_installer_gui.Installer
         // TODO: XML Array for remote files
         // TODO: File hashing for verification
         public const string VCRedistRemote = "https://aka.ms/vs/17/release/vc_redist.x64.exe";
-        public const string AugHipRemote = "https://github.com/hyblocker/augmented-hip/releases/download/0.1/augmented-hip.zip";
+        public const string AugHipRemote = "https://github.com/aughip/augmented-hip/releases/download/0.2/augmented-hip.zip";
         // TODO: Move to %TMP%
         public static readonly string DownloadDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "aughip-installer");
 

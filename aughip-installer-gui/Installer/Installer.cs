@@ -167,8 +167,8 @@ namespace aughip_installer_gui.Installer
                         key.SetValue("Publisher", asm.GetCustomAttribute<AssemblyCompanyAttribute>().Company);
                         key.SetValue("DisplayIcon", Path.Combine(InstallerData.InstallPath, "aughip-installer-gui.exe"));
                         key.SetValue("DisplayVersion", "0.1");
-                        key.SetValue("URLInfoAbout", "https://k2vr.tech");
-                        key.SetValue("Contact", "https://k2vr.tech");
+                        key.SetValue("URLInfoAbout", "https://getaughip.com");
+                        key.SetValue("Contact", "https://getaughip.com");
                         key.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
                         key.SetValue("UninstallString", Path.Combine(InstallerData.InstallPath, "aughip-installer-gui.exe") + " /uninstall");
                         key.SetValue("InstallLocation", InstallerData.InstallPath);
